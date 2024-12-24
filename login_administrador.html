@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Halcones UV - Inicio de Sesión</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+  <!-- Encabezado -->
+  <header class="custom-bg text-white py-4 shadow-md w-full">
+    <div class="container mx-auto px-4 flex justify-center">
+      <img src="img/logo.png" alt="Logo Academia Halcones UV" class="h-16 w-auto">
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-4 py-12 flex justify-center items-center flex-grow">
+    <!-- Sección de Inicio de Sesión -->
+    <section id="login" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Iniciar Sesión</h1>
+      <form id="login-form" class="space-y-6">
+        <!-- Campo de usuario -->
+        <div>
+          <label for="login-usuario" class="block text-sm font-medium text-gray-700">Usuario:</label>
+          <input type="text" id="login-usuario" name="usuario" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ingresa tu usuario" required>
+        </div>
+
+        <!-- Campo de contraseña -->
+        <div>
+          <label for="login-password" class="block text-sm font-medium text-gray-700">Contraseña:</label>
+          <input type="password" id="login-password" name="password" class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ingresa tu contraseña" required>
+        </div>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Iniciar Sesión</button>
+
+        <!-- Enlaces adicionales -->
+        <div class="flex justify-between mt-6 text-sm">
+          <a href="registroA.html" class="text-blue-600 hover:underline">Registrarse</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="custom-bg text-white py-6 mt-auto w-full">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2024 Academia Halcones UV - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Archivo JS -->
+  <script src="js/LoginA.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

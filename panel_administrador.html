@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrador</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <style>
+    .custom-card {
+      background-color: #F9FAFB;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .custom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+
+  <header class="bg-blue-600 text-white py-4 shadow-md w-full">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <img src="img/logo.png" alt="Logo Academia Halcones UV" class="h-16 w-auto">
+      <button id="logout-button" class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700">
+        Cerrar Sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 flex flex-col items-center space-y-8">
+    <h2 class="text-3xl font-bold text-gray-800 text-center">Panel Administrador</h2>
+
+    <div class="space-y-6">
+      <!-- Crear Estudiante -->
+      <div class="custom-card w-full max-w-md p-6">
+        <h3 class="text-xl font-semibold text-gray-700 text-center">Ver lista de padres</h3>
+        <p class="text-gray-600 text-center mb-4">Consulta los padres.</p>
+        <a href="Padres_Lista.html" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold block text-center hover:bg-green-700 transition">Ver Padres</a>
+      </div>
+
+      <!-- Ver Estudiante -->
+      <div class="custom-card w-full max-w-md p-6">
+        <h3 class="text-xl font-semibold text-gray-700 text-center">Ver lista de Estudiantes</h3>
+        <p class="text-gray-600 text-center mb-4">Consulta los estudiantes ya registrados.</p>
+        <a href="estudiantes.html" class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold block text-center hover:bg-blue-700 transition">Ver Estudiantes</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-6 mt-auto w-full">
+    <div class="container mx-auto px-4 text-center">
+      <p>Academia Halcones UV - Todos los derechos reservados 2024</p>
+    </div>
+  </footer>
+
+  <script>
+    // Agregar funcionalidad al botón "Cerrar Sesión"
+    document.getElementById('logout-button').addEventListener('click', () => {
+      // Mostrar una confirmación antes de cerrar sesión
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Si cierras sesión perderás el acceso hasta que inicies nuevamente.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, cerrar sesión',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Eliminar datos del localStorage
+          localStorage.removeItem('token');
+          localStorage.removeItem('tokenRefresh');
+          localStorage.removeItem('nombreCompleto');
+
+          // Opcional: Limpiar todo el localStorage
+          // localStorage.clear();
+
+          // Mostrar una alerta de éxito
+          Swal.fire({
+            title: 'Sesión cerrada',
+            text: 'Has cerrado sesión correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then(() => {
+            // Redirigir al usuario al login
+            window.location.href = 'login_administrador.html';
+          });
+        }
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

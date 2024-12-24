@@ -1,0 +1,92 @@
+/* Centrar el contenedor del formulario */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centrado vertical */
+}
+
+/* Estilo 3D para el input */
+#buscar {
+    background: linear-gradient(145deg, #ffffff, #d4d4d4);
+    box-shadow: 4px 4px 8px #c1c1c1, -4px -4px 8px #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    outline: none;
+    width: 250px; /* Ajusta el tamaño del input */
+    transition: all 0.3s ease-in-out;
+}
+
+#buscar:focus {
+    box-shadow: 2px 2px 6px #a1a1a1, -2px -2px 6px #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Estilo 3D para el botón */
+#btnBuscar {
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    box-shadow: 4px 4px 8px #0056b3, -4px -4px 8px #007bff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 180px; /* Ajusta el tamaño del botón */
+    margin-top: 10px; /* Separación entre input y botón */
+}
+
+#btnBuscar:hover {
+    background: linear-gradient(145deg, #0056b3, #003f8f);
+    box-shadow: 2px 2px 6px #004c8f, -2px -2px 6px #007bff;
+    transform: translateY(-2px);
+}
+#actualizar, #eliminar {
+    position: fixed;
+    right: 10px; /* Ajuste para ambos botones en la misma posición horizontal */
+    width: 180px; /* Ancho del botón */
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botón Actualizar */
+#actualizar {
+    top: 100px; /* Empieza 100px desde la parte superior */
+    background-color: #1D4ED8; /* Azul más intenso */
+}
+
+#actualizar:hover {
+    background-color: #2563EB; /* Color más claro cuando pasa el mouse */
+    transform: scale(1.1); /* Expande el botón al pasar el mouse */
+}
+
+#actualizar:active {
+    transform: scale(1); /* Restaura el tamaño al hacer clic */
+}
+
+/* Botón Eliminar Estudiante */
+#eliminar {
+    top: 180px; /* El botón de eliminar estará 80px debajo del de actualizar */
+    background-color: #EF4444; /* Rojo intenso para el botón de eliminar */
+}
+
+#eliminar:hover {
+    background-color: #F87171; /* Color más claro cuando pasa el mouse */
+    transform: scale(1.1); /* Expande el botón al pasar el mouse */
+}
+
+#eliminar:active {
+    transform: scale(1); /* Restaura el tamaño al hacer clic */
+}
+

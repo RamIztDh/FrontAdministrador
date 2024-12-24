@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Halcones UV - Registro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link rel="stylesheet" href="css/registro.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col justify-center items-center">
+  <!-- Encabezado -->
+  <header class="custom-bg text-white py-4 shadow-md w-full">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <img src="img/logo.png" alt="Logo Academia Halcones UV" class="h-16 w-auto">
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-4 py-12 flex justify-center">
+    <!-- Sección de Registro -->
+    <section id="registro" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">Registro de Administrador</h2>
+      <form id="registro-form" class="space-y-6" novalidate>
+        <!-- Campo de correo electrónico -->
+          <!-- Campo de nombre completo -->
+        <div>
+          <label for="registro-usuario" class="block text-sm font-medium text-gray-700">Usuario:</label>
+          <input 
+            type="text" 
+            id="registro-usuario" 
+            name="Usuario" 
+            class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" 
+            placeholder="NombreUsuario"
+            required
+            aria-required="true"
+          >
+        </div>
+        <div>
+            <label for="registro-nombre" class="block text-sm font-medium text-gray-700">Nombre Completo:</label>
+            <input 
+              type="text" 
+              id="registro-nombre" 
+              name="nombreCompleto" 
+              class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" 
+              placeholder="Juan Pérez"
+              required
+              aria-required="true"
+            >
+          </div>
+        <!-- Campo de contraseña -->
+        <div>
+          <label for="registro-password" class="block text-sm font-medium text-gray-700">Contraseña:</label>
+          <input 
+            type="password" 
+            id="registro-password" 
+            name="password" 
+            class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" 
+            placeholder="••••••••"
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <!-- Campo de nombre completo -->
+      
+ 
+
+        <!-- Botón de registro -->
+        <button 
+          type="submit" 
+          class="w-full custom-button bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          Registrarse
+        </button>
+
+        <!-- Enlace de regreso -->
+        <div class="flex justify-between mt-6 text-sm">
+          <a href="loginP.html" class="text-blue-600 hover:underline">Regresar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="custom-bg text-white py-6 mt-auto w-full">
+    <div class="container mx-auto px-4 text-center">
+      <p>Academia Halcones UV - Todos los derechos reservados 2024</p>
+    </div>
+  </footer>
+
+  <!-- Archivo JavaScript -->
+  <script src="js/registroA.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

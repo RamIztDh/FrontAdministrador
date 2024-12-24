@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Hijo - Panel Administrador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="css/panel_principal.css">
+    <link rel="stylesheet" href="css/estudiantes.css">
+    <link rel="stylesheet" href="css/buscador.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <style>
+        .custom-card {
+            background-color: #F9FAFB;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease; /* Solo transición de sombra */
+        }
+
+        .custom-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el cursor */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+
+<header class="custom-bg text-white py-4 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <img src="img/logo.png" alt="Logo Academia Halcones UV" class="h-16 w-auto mr-4">
+        <a href="panel_administrador.html"
+           id="regresar" 
+           class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700">Regresar</a>
+    </div>
+    
+    
+</header>
+<main class="container mx-auto px-4 py-12 flex flex-col items-center space-y-8">
+    <div class="w-full mb-4 flex justify-center">
+        <label for="buscar" class="block text-gray-700 font-semibold mb-2">Buscar por Nombre:</label>
+        <div class="flex">
+            <input type="text" id="buscar" placeholder="Escribe un nombre para buscar"
+                   class="w-full max-w-xs bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2">
+            <button id="btnBuscar" class="bg-blue-500 text-white py-2 px-4 rounded ml-2 hover:bg-blue-600">Buscar</button>
+        </div>
+    </div>
+    <div class="space-y-6 w-full max-w-4xl">
+        <!-- Detalle del Hijo -->
+        <div class="custom-card p-6">
+            <h3 class="text-xl font-semibold text-gray-700 text-center mb-6">Detalle de los padres</h3>
+
+            <!-- Sección de Datos del Hijo -->
+            <section id="detalleHijo">
+                <h4 class="text-lg font-semibold text-gray-800">Información del Hijo</h4>
+                <table class="w-full mt-4">
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">usuario:</th>
+                        <td class="py-2 px-4" id="usuario"></td>
+                    </tr>                    
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">telefono:</th>
+                        <td class="py-2 px-4">
+                            <input type="text" id="telefono" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2" readonly>
+                            <button id="btnEditartelefono" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
+                        </td>
+                    </tr>
+                    <div id="modalEditarCurso" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+                        <div class="bg-white rounded-lg p-6 w-96">
+                            <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar telefono</h3>
+                            <input type="text" id="cursoModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <div class="mt-4 flex justify-between">
+                                <button id="btnGuardartelefono" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
+                                <button id="btnCancelartelefono" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">email:</th>
+                        <td class="py-2 px-4">
+                            <input type="text" id="email" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2" readonly>
+                            <button id="btnEditaremail" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
+                        </td>
+                    </tr>
+                    <div id="modalEditaremail" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+                        <div class="bg-white rounded-lg p-6 w-96">
+                            <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar email</h3>
+                            <input type="text" id="categoriaModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <div class="mt-4 flex justify-between">
+                                <button id="btnGuardaremail" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
+                                <button id="btnCancelaremail" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Direccion:</th>
+                        <td class="py-2 px-4">
+                            <input type="text" id="direccion" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2" readonly>
+                            <button id="btnEditardireccion" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
+                        </td>
+                    </tr>
+                     <!-- Modal para editar Horario -->
+                    <div id="modalEditardireccion" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+                        <div class="bg-white rounded-lg p-6 w-96">
+                            <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar direccion</h3>
+                            <input type="text" id="horarioModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <div class="mt-4 flex justify-between">
+                                <button id="btnGuardardireccion" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
+                                <button id="btnCancelardireccion" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Nombre Completo:</th>
+                        <td class="py-2 px-4" id="nombreCompleto"></td>
+                    </tr>
+                    </tr>
+                    <tr class="border-b">
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Fecha de creacion:</th>
+                        <td class="py-2 px-4">
+                            <input type="date" id="fechaCreacion"
+                                   class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2">
+                        </td>
+                    </tr>
+
+                </table>
+            </section>
+            <div class="flex justify-between mt-6">
+                <button id="anterior" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Anterior
+                </button>
+                <button id="actualizar" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                    Actualizar Datos del Padre
+                </button>
+                
+                <button id="siguiente" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Siguiente
+                </button>
+            </div>
+            <button id="eliminar">Eliminar Padre</button>
+
+        </div>
+    </div>
+</main>
+<footer class="custom-bg text-white py-6 mt-auto w-full">
+    <div class="container mx-auto px-4 text-center">
+        <p>Academia Halcones UV - Todos los derechos reservados 2024</p>
+    </div>
+</footer>
+<script src="js/auth.js"></script>
+<script src="js/PadresLista.js"></script>
+</body>
+</html>
