@@ -86,16 +86,24 @@
                             <button id="btnEditarCurso" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
                         </td>
                     </tr>
+                    
+                    <!-- Modal para editar el curso -->
                     <div id="modalEditarCurso" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
                         <div class="bg-white rounded-lg p-6 w-96">
                             <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar Curso</h3>
-                            <input type="text" id="cursoModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <!-- Select con las opciones de Curso -->
+                            <select id="cursoModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                                <option value="" disabled selected>Selecciona un curso</option>
+                                <option value="Lunes Miercoles Y Viernes">Lunes Miercoles Y Viernes</option>
+                                <option value="Martes y Jueves">Martes y Jueves</option>
+                            </select>
                             <div class="mt-4 flex justify-between">
                                 <button id="btnGuardarCurso" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
                                 <button id="btnCancelarCurso" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
                             </div>
                         </div>
                     </div>
+                    
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">Categoría:</th>
                         <td class="py-2 px-4">
@@ -103,16 +111,28 @@
                             <button id="btnEditarCategoria" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
                         </td>
                     </tr>
+                    
+                    <!-- Modal para editar la categoría -->
                     <div id="modalEditarCategoria" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
                         <div class="bg-white rounded-lg p-6 w-96">
                             <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar Categoría</h3>
-                            <input type="text" id="categoriaModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <!-- Select con las opciones de Categoría -->
+                            <select id="categoriaModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                                <option value="" disabled selected>Selecciona una categoría</option>
+                                <option value="4-5">4-5</option>
+                                <option value="6-7">6-7</option>
+                                <option value="10-11">10-11</option>
+                                <option value="12-13">12-13</option>
+                                <option value="14-15">14-15</option>
+                                <option value="16-17">16-17</option>
+                            </select>
                             <div class="mt-4 flex justify-between">
                                 <button id="btnGuardarCategoria" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
                                 <button id="btnCancelarCategoria" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
                             </div>
                         </div>
                     </div>
+                    
 
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">Horario:</th>
@@ -121,17 +141,24 @@
                             <button id="btnEditarHorario" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
                         </td>
                     </tr>
-                     <!-- Modal para editar Horario -->
+                    
+                    <!-- Modal para editar Horario -->
                     <div id="modalEditarHorario" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
                         <div class="bg-white rounded-lg p-6 w-96">
                             <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar Horario</h3>
-                            <input type="text" id="horarioModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <!-- Select con opciones de horarios predefinidos -->
+                            <select id="horarioModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                                <option value="" disabled selected>Selecciona un horario</option>
+                                <option value="4:00 - 6:00">4:00 - 6:00</option>
+                                <option value="4:00 - 5:30">4:00 - 5:30</option>
+                            </select>
                             <div class="mt-4 flex justify-between">
                                 <button id="btnGuardarHorario" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
                                 <button id="btnCancelarHorario" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
                             </div>
                         </div>
                     </div>
+                    
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">Nombre Completo:</th>
                         <td class="py-2 px-4" id="nombreCompleto"></td>
@@ -212,22 +239,37 @@
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">Estatus:</th>
                         <td class="py-2 px-4">
-                            <input type="text" id="estatus" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2" readonly>
-                            <button id="btnEditarEstatus" class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">Editar</button>
+                            <input 
+                                type="text" 
+                                id="estatus" 
+                                class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2" 
+                                readonly>
+                            <button 
+                                id="btnEditarEstatus" 
+                                class="bg-yellow-500 text-white py-2 px-4 rounded ml-2 hover:bg-yellow-600">
+                                Editar
+                            </button>
                         </td>
                     </tr>
-                       <!-- Modal de Estatus -->
-                       <div id="modalEditarEstatus" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
+                    
+                    <!-- Modal de Estatus -->
+                    <div id="modalEditarEstatus" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center hidden">
                         <div class="bg-white rounded-lg p-6 w-96">
                             <h3 class="text-xl font-semibold text-gray-700 mb-4">Modificar Estatus</h3>
-                            <input type="text" id="estatusModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                            <!-- Select con opciones de estatus -->
+                            <select id="estatusModal" class="bg-gray-200 text-gray-700 border border-gray-300 rounded px-4 py-2 w-full">
+                                <option value="" disabled selected>Selecciona un estatus</option>
+                                <option value="ACTIVO">ACTIVO</option>
+                                <option value="PENDIENTE">PENDIENTE</option>
+                                <option value="BAJA">BAJA</option>
+                            </select>
                             <div class="mt-4 flex justify-between">
                                 <button id="btnGuardarEstatus" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Guardar</button>
                                 <button id="btnCancelarEstatus" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600">Cancelar</button>
                             </div>
                         </div>
                     </div>
-                    </tr>
+                    
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">Fecha de Pago:</th>
                         <td class="py-2 px-4">
@@ -239,18 +281,18 @@
                 </table>
 
                 <!-- Información del Padre -->
-                <h4 class="text-lg font-semibold text-gray-800 mt-8">Información del Padre</h4>
+                <h4 class="text-lg font-semibold text-gray-800 mt-8">Información del Tutor</h4>
                 <table class="w-full mt-4">
                     <tr class="border-b">
-                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Nombre del Padre:</th>
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Nombre del Tutor:</th>
                         <td class="py-2 px-4" id="nombrePadre"></td>
                     </tr>
                     <tr class="border-b">
-                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Correo del Padre:</th>
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Correo del Tutor:</th>
                         <td class="py-2 px-4" id="correoPadre"></td>
                     </tr>
                     <tr class="border-b">
-                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Teléfono del Padre:</th>
+                        <th class="text-left py-2 px-4 font-semibold text-gray-600">Teléfono del Tutor:</th>
                         <td class="py-2 px-4" id="telefonoPadre"></td>
                     </tr>
                 </table>
@@ -358,6 +400,37 @@
     btnCancelarEstatus.addEventListener('click', () => {
         modalEditarEstatus.classList.add('hidden');
     });
+    document.addEventListener('DOMContentLoaded', () => {
+    const btnEditarHorario = document.getElementById('btnEditarHorario');
+    const modalEditarHorario = document.getElementById('modalEditarHorario');
+    const horarioInput = document.getElementById('horario');
+    const horarioModal = document.getElementById('horarioModal');
+    const btnGuardarHorario = document.getElementById('btnGuardarHorario');
+    const btnCancelarHorario = document.getElementById('btnCancelarHorario');
+
+    // Abrir el modal al hacer clic en "Editar"
+    btnEditarHorario.addEventListener('click', () => {
+        modalEditarHorario.classList.remove('hidden');
+    });
+
+    // Guardar el horario seleccionado
+    btnGuardarHorario.addEventListener('click', () => {
+        const selectedHorario = horarioModal.value;
+
+        if (selectedHorario) {
+            horarioInput.value = selectedHorario;
+            modalEditarHorario.classList.add('hidden');
+        } else {
+            alert('Por favor selecciona un horario antes de guardar.');
+        }
+    });
+
+    // Cerrar el modal sin guardar
+    btnCancelarHorario.addEventListener('click', () => {
+        modalEditarHorario.classList.add('hidden');
+    });
+});
+
 
     // Modal de Categoría
     const btnEditarCategoria = document.getElementById('btnEditarCategoria');

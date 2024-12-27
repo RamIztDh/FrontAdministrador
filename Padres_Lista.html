@@ -48,11 +48,10 @@
     <div class="space-y-6 w-full max-w-4xl">
         <!-- Detalle del Hijo -->
         <div class="custom-card p-6">
-            <h3 class="text-xl font-semibold text-gray-700 text-center mb-6">Detalle de los padres</h3>
+            <h3 class="text-xl font-semibold text-gray-700 text-center mb-6">Detalle de los Tutores</h3>
 
             <!-- Sección de Datos del Hijo -->
             <section id="detalleHijo">
-                <h4 class="text-lg font-semibold text-gray-800">Información del Hijo</h4>
                 <table class="w-full mt-4">
                     <tr class="border-b">
                         <th class="text-left py-2 px-4 font-semibold text-gray-600">usuario:</th>
@@ -130,13 +129,13 @@
                 <button id="anterior" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Anterior
                 </button>
                 <button id="actualizar" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                    Actualizar Datos del Padre
+                    Actualizar Datos del Tutores
                 </button>
                 
                 <button id="siguiente" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Siguiente
                 </button>
             </div>
-            <button id="eliminar">Eliminar Padre</button>
+            <button id="eliminar">Eliminar Tutor</button>
 
         </div>
     </div>
@@ -148,5 +147,84 @@
 </footer>
 <script src="js/auth.js"></script>
 <script src="js/PadresLista.js"></script>
+<script>
+    // Referencias a los elementos
+    const btnEditarTelefono = document.getElementById('btnEditartelefono');
+    const modalEditarTelefono = document.getElementById('modalEditarCurso');
+    const btnGuardarTelefono = document.getElementById('btnGuardartelefono');
+    const btnCancelarTelefono = document.getElementById('btnCancelartelefono');
+    const telefonoInput = document.getElementById('telefono');
+    const telefonoModalInput = document.getElementById('cursoModal');
+
+    // Abrir el modal con el teléfono actual
+    btnEditarTelefono.addEventListener('click', () => {
+        telefonoModalInput.value = telefonoInput.value; // Rellenar el campo del modal con el teléfono actual
+        modalEditarTelefono.classList.remove('hidden'); // Mostrar el modal
+    });
+
+    // Guardar los cambios de teléfono
+    btnGuardarTelefono.addEventListener('click', () => {
+        telefonoInput.value = telefonoModalInput.value; // Actualizar el teléfono en el campo original
+        modalEditarTelefono.classList.add('hidden'); // Cerrar el modal
+    });
+
+    // Cancelar la edición
+    btnCancelarTelefono.addEventListener('click', () => {
+        modalEditarTelefono.classList.add('hidden'); // Cerrar el modal sin hacer cambios
+    });
+</script>
+<script>
+    // Referencias a los elementos
+    const btnEditarEmail = document.getElementById('btnEditaremail');
+    const modalEditarEmail = document.getElementById('modalEditaremail');
+    const btnGuardarEmail = document.getElementById('btnGuardaremail');
+    const btnCancelarEmail = document.getElementById('btnCancelaremail');
+    const emailInput = document.getElementById('email');
+    const emailModalInput = document.getElementById('categoriaModal');
+
+    // Abrir el modal con el email actual
+    btnEditarEmail.addEventListener('click', () => {
+        emailModalInput.value = emailInput.value; // Rellenar el campo del modal con el email actual
+        modalEditarEmail.classList.remove('hidden'); // Mostrar el modal
+    });
+
+    // Guardar los cambios de email
+    btnGuardarEmail.addEventListener('click', () => {
+        emailInput.value = emailModalInput.value; // Actualizar el email en el campo original
+        modalEditarEmail.classList.add('hidden'); // Cerrar el modal
+    });
+
+    // Cancelar la edición
+    btnCancelarEmail.addEventListener('click', () => {
+        modalEditarEmail.classList.add('hidden'); // Cerrar el modal sin hacer cambios
+    });
+</script>
+<script>
+    // Referencias a los elementos
+    const btnEditarDireccion = document.getElementById('btnEditardireccion');
+    const modalEditarDireccion = document.getElementById('modalEditardireccion');
+    const btnGuardarDireccion = document.getElementById('btnGuardardireccion');
+    const btnCancelarDireccion = document.getElementById('btnCancelardireccion');
+    const direccionInput = document.getElementById('direccion');
+    const direccionModalInput = document.getElementById('horarioModal');
+
+    // Abrir el modal con la dirección actual
+    btnEditarDireccion.addEventListener('click', () => {
+        direccionModalInput.value = direccionInput.value; // Rellenar el campo del modal con la dirección actual
+        modalEditarDireccion.classList.remove('hidden'); // Mostrar el modal
+    });
+
+    // Guardar los cambios de dirección
+    btnGuardarDireccion.addEventListener('click', () => {
+        direccionInput.value = direccionModalInput.value; // Actualizar la dirección en el campo original
+        modalEditarDireccion.classList.add('hidden'); // Cerrar el modal
+    });
+
+    // Cancelar la edición
+    btnCancelarDireccion.addEventListener('click', () => {
+        modalEditarDireccion.classList.add('hidden'); // Cerrar el modal sin hacer cambios
+    });
+</script>
+
 </body>
 </html>

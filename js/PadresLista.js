@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             setDefaultText('fechaCreacion', padreData.fechaCreacion);
         }
     };
-    const eliminarEstudiante = async (uuidPadre) => {
+    const eliminarPadre = async (padreData) => {
         const response = await fetchWithAuth(
-            `http://localhost:8080/api/student/${uuidPadre}`,
+            `http://localhost:8080/api/father/${padreData}`,
             'DELETE'
         );
 
@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
     
-    const actualizarEstudiante = async (padreData, uuidPadre) => {
+    const actualizarPadre = async (padreData, uuidPadre) => {
         const response = await fetchWithAuth(
-            `http://localhost:8080/api/student/admin/${uuidPadre}`,
+            `http://localhost:8080/api/father/${uuidPadre}`,
             'PUT',
             padreData
         );
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         
-        const response = await fetchWithAuthGet(`http://localhost:8080/api/father/user/$`);
+        const response = await fetchWithAuthGet(`http://localhost:8080/api/father`);
         if (response.ok) {
             const data = await response.json();
 
@@ -113,20 +113,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
 
                 document.getElementById('actualizar').addEventListener('click', () => {
-                    const uuidPadre = data[currentIndex].id;
+                    const uuidPadre = data[currentIndex].usuario;
 
                     const padreData = {
-                        categoria: document.getElementById('categoria').value,
-                        horario: document.getElementById('horario').value,
-                        estatus: document.getElementById('estatus').value,
-                        fechaPago: new Date(document.getElementById('fechaPago').value).toISOString(),
+                        telefono: document.getElementById('telefono').value,
+                        email: document.getElementById('email').value,
+                        direccion: document.getElementById('direccion').value,
+                        fechaCreacion: new Date(document.getElementById('fechaCreacion').value).toISOString(),
                     };
 
-                    actualizarEstudiante(padreData, uuidPadre);
+                    actualizarPadre(padreData, uuidPadre);
                 });
    // Agregar el evento para eliminar un estudiante
    document.getElementById('eliminar').addEventListener('click', () => {
-    const uuidPadre = data[currentIndex].id;
+    const uuidPadre = data[currentIndex].usuario;
 
     // Mostrar alerta de confirmación para eliminar
     Swal.fire({
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         cancelButtonText: 'No, cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
-            eliminarEstudiante(uuidPadre);
+            eliminarPadre(uuidPadre);
         }
     });
 });
